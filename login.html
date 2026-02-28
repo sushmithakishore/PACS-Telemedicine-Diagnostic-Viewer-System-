@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PACS Secure Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-body">
+
+<div class="login-layout">
+
+  <div class="login-left">
+    <h1>PACS Teleradiology Portal</h1>
+    <p class="subtitle">
+      Secure remote access for diagnostic imaging
+    </p>
+    <ul class="features">
+      <li>Encrypted PACS Access</li>
+      <li>Remote Image Interpretation</li>
+      <li>Telemedicine Enabled</li>
+      <li>Audit & Compliance Ready</li>
+    </ul>
+  </div>
+
+  <div class="login-card">
+    <h2>Radiologist Authentication</h2>
+<div class="biometric">
+  <video id="video" autoplay></video>
+  <button onclick="login()">Authenticate</button>
+</div>
+
+    <p class="note">
+      Face recognition enabled (demo mode)
+    </p>
+  </div>
+
+</div>
+
+<script>
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(stream => video.srcObject = stream);
+
+function login() {
+  window.location.href = "worklist.html";
+}
+</script>
+
+</body>
+</html>
+

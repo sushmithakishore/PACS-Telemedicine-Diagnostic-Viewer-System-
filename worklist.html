@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Radiology Worklist</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <span>PACS Telemedicine Worklist</span>
+  <span class="status">● Secure Connection</span>
+</header>
+
+<div class="worklist-layout">
+
+  <!-- Filters panel -->
+  <aside class="filters">
+    <h3>Filters</h3>
+    <label><input type="checkbox" checked> Emergency</label>
+    <label><input type="checkbox" checked> Routine</label>
+    <label><input type="checkbox"> Reviewed</label>
+    <hr>
+    <p><strong>Modality</strong></p>
+    <label><input type="checkbox" checked> MRI</label>
+    <label><input type="checkbox" checked> CT</label>
+    <label><input type="checkbox" checked> X-Ray</label>
+  </aside>
+
+  <!-- Study list -->
+  <main class="worklist">
+
+    <div class="study" onclick="openViewer({
+      image:'brainmri.jpeg',
+      patientId:'784512',
+      modality:'Brain MRI'
+    })">
+      <img src="brainmri.jpeg">
+      <div class="info">
+        <strong>Patient ID: 784512</strong>
+        <p>Brain MRI</p>
+        <p class="flag">⚠ Possible ischemic changes</p>
+      </div>
+      <div class="meta">
+        <span class="priority high">STAT</span>
+        <span>12 min ago</span>
+      </div>
+    </div>
+
+    <div class="study" onclick="openViewer({
+      image:'cardiacct.jpg',
+      patientId:'992341',
+      modality:'Cardiac CT'
+    })">
+      <img src="cardiacct.jpg">
+      <div class="info">
+        <strong>Patient ID: 992341</strong>
+        <p>Cardiac CT</p>
+        <p class="flag">⚠ Coronary calcification suspected</p>
+      </div>
+      <div class="meta">
+        <span class="priority medium">Urgent</span>
+        <span>28 min ago</span>
+      </div>
+    </div>
+
+    <div class="study" onclick="openViewer({
+      image:'dentalxray.jpg',
+      patientId:'883210',
+      modality:'Dental X-Ray'
+    })">
+      <img src="dentalxray.jpg">
+      <div class="info">
+        <strong>Patient ID: 883210</strong>
+        <p>Dental X-Ray</p>
+        <p class="flag">⚠ Impacted molar</p>
+      </div>
+      <div class="meta">
+        <span class="priority low">Routine</span>
+        <span>1 hr ago</span>
+      </div>
+    </div>
+
+    <div class="study" onclick="openViewer({
+      image:'abdomenct.jpg',
+      patientId:'671204',
+      modality:'Abdomen CT'
+    })">
+      <img src="abdomenct.jpg">
+      <div class="info">
+        <strong>Patient ID: 671204</strong>
+        <p>Abdomen CT</p>
+        <p class="flag">⚠ Heterogeneous renal lesions – review advised</p>
+      </div>
+      <div class="meta">
+        <span class="priority high">STAT</span>
+        <span>18 min ago</span>
+      </div>
+    </div>
+
+    <div class="study" onclick="openViewer({
+      image:'chestxray.jpg',
+      patientId:'558903',
+      modality:'Chest X-Ray'
+    })">
+      <img src="chestxray.jpg">
+      <div class="info">
+        <strong>Patient ID: 558903</strong>
+        <p>Chest X-Ray</p>
+        <p class="flag">⚠ Mild bilateral infiltrates</p>
+      </div>
+      <div class="meta">
+        <span class="priority medium">Routine</span>
+        <span>42 min ago</span>
+      </div>
+    </div>
+
+    <div class="study" onclick="openViewer({
+      image:'handct.jpg',
+      patientId:'440187',
+      modality:'Hand CT'
+    })">
+      <img src="handct.jpg">
+      <div class="info">
+        <strong>Patient ID: 440187</strong>
+        <p>Hand CT</p>
+        <p class="flag">⚠ Comminuted fracture suspected</p>
+      </div>
+      <div class="meta">
+        <span class="priority medium">Urgent</span>
+        <span>55 min ago</span>
+      </div>
+    </div>
+
+    <div class="study" onclick="openViewer({
+      image:'pelvisgynaemri.jpg',
+      patientId:'772691',
+      modality:'Pelvic MRI (Gynaecology)'
+    })">
+      <img src="pelvisgynaemri.jpg">
+      <div class="info">
+        <strong>Patient ID: 772691</strong>
+        <p>Pelvic MRI (Gynaecology)</p>
+        <p class="flag">⚠ Uterine mass – further characterization needed</p>
+      </div>
+      <div class="meta">
+        <span class="priority low">Routine</span>
+        <span>1 hr 20 min ago</span>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function openViewer(study) {
+  localStorage.setItem("activeStudy", JSON.stringify(study));
+  window.location.href = "viewer.html";
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PACS Diagnostic Viewer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <span>Diagnostic Viewer – PACS Telemedicine</span>
+  <span class="status">● Live Telemedicine Session</span>
+</header>
+
+<div class="viewer-layout">
+
+  <aside class="toolbox">
+    <h4>Navigation</h4>
+    <button onclick="zoomIn()">Zoom +</button>
+    <button onclick="zoomOut()">Zoom −</button>
+    <button onclick="panMode()">Pan</button>
+    <button onclick="reset()">Reset</button>
+
+    <h4>Orientation</h4>
+    <button onclick="rotate()">Rotate</button>
+    <button onclick="flip()">Flip</button>
+
+    <h4>Visualization</h4>
+    <button onclick="invert()">Invert</button>
+    <button onclick="brighten()">Brightness +</button>
+    <button onclick="darken()">Brightness −</button>
+
+    <h4>Workflow</h4>
+    <button onclick="markReviewed()">Mark Reviewed</button>
+    <button onclick="lockStudy()">Lock Study</button>
+  </aside>
+
+  <main class="viewer">
+    <div class="image-wrapper">
+      <img id="scan" alt="Diagnostic Image">
+    </div>
+    <div class="viewer-status">
+      <span id="reviewStatus">Status: Unreviewed</span>
+    </div>
+  </main>
+
+  <aside class="report">
+    <h4>Patient & Study Info</h4>
+    <p><strong>Patient ID:</strong> <span id="pid">—</span></p>
+    <p><strong>Modality:</strong> <span id="modality">—</span></p>
+    <p><strong>Study Time:</strong> <span id="time">—</span></p>
+
+    <h4>Radiologist Notes</h4>
+    <textarea placeholder="Enter observations..."></textarea>
+    <button class="primary">Save Notes</button>
+
+    <div class="tele">
+      Shared with referring clinician via telemedicine
+    </div>
+  </aside>
+
+</div>
+
+<script src="viewer.js"></script>
+</body>
+</html>
+
+
+
